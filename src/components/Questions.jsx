@@ -78,12 +78,12 @@ export default function Questions({data: initialData, playAgain}) {
       )
     })
   return (
-    <div className='questions-container'>
+    <article className='questions-container'>
 
         {questionsChildren}
-        {gameOver && <p className="score">You scored {answersCount}/5 correct answers</p>}
-        {!gameOver && !checkIsComplete && answersCount !== 5 && <p className='score'>You have to answer all the questions</p>}
+        {gameOver && <p aria-live="polite" className="score">You scored {answersCount}/5 correct answers</p>}
+        {!gameOver && !checkIsComplete && answersCount !== 5 && <p aria-live="polite" className='score'>You have to answer all the questions</p>}
         <button onClick={gameOver ? restartGame : handleCheckedAnswers} className="check-btn">{gameOver ? "Play again" : "Check answers"}</button>
-    </div>
+    </article>
   )
 }

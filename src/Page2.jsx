@@ -6,6 +6,7 @@ export default function Page2() {
     const URL = "https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple"
 
     const [rawData, setRawData] = useState([])
+    const [error, setError] = useState(null)
 
     function fetchQuestions(){
       fetch(URL)
@@ -18,7 +19,10 @@ export default function Page2() {
             console.log("questions", data.results)
             setRawData(data.results)
         })
-        .catch(err => console.error("Fetch error:", err))
+        .catch(err => {
+          setError("Could not load questions. Please try again")
+          console.error("Fetch error:", err)
+        })
     }
 
 
@@ -26,9 +30,9 @@ export default function Page2() {
         fetchQuestions()
     }, [])
   return (
-    <div>
+    <section>
         <Questions data={rawData} playAgain={fetchQuestions} />
-        
-    </div>
+        {error && <p aria-live="polite" role="alert">{error}</p>}
+    </section>
   )
 }
