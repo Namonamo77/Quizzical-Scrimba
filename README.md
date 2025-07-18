@@ -1,7 +1,3 @@
-Here’s a polished and more professional version of your README, written from the perspective of a creative developer showcasing your work:
-
----
-
 # 🎉 Quizzical — A Trivia Quiz App (Scrimba Project)
 
 A fun and dynamic quiz app built during my journey through the **Scrimba React course**. This project helped me deepen my understanding of React fundamentals like state, props, hooks, and component architecture — all while making something playful and interactive.
